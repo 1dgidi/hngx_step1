@@ -6,7 +6,7 @@ endpoint = FastAPI()
 
 
 @endpoint.get('/api')
-async def get_info(slack_name: str, track: str, response: Response):
+async def get_info(slack_name: str, track: str):
     res = {
         'slack_name': slack_name,
         'current_day': datetime.now().strftime('%A'),
