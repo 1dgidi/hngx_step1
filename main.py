@@ -1,14 +1,21 @@
-from typing import Optional
+from fastapi import FastAPI, Response
 
-from fastapi import FastAPI
+from datetime import datetime, timezone
 
-app = FastAPI()
+endpoint = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@endpoint.get('/')
+async def get_info(slack_name: str, track: str, response: Response):
+    res = {
+        'slack_name': slack_name,
+        'current_day': datetime.now().strftime('%A'),
+        'utc_time': str(datetime.now(timezone.utc).\
+                    replace(microsecond=0)).replace('+00:00', 'Z'),
+        'track': track,
+        'github_file_url': 'https://github.com/1dgidi/hngx_step1/edit/main/main.py',
+        'github_repo_url': 'https://github.com/1dgidi/hngx_step1',
+        'status_code': 200
+    }
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+    return res
