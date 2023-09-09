@@ -14,7 +14,7 @@ async def get_info(slack_name: str, track: str):
                     replace(microsecond=0)).replace('+00:00', 'Z').\
                     replace(' ', 'T'),
         'track': track,
-        'github_file_url': 'https://github.com/1dgidi/hngx_step1/edit/main/main.py',
+        'github_file_url': 'https://github.com/1dgidi/hngx_step1/blob/main/main.py',
         'github_repo_url': 'https://github.com/1dgidi/hngx_step1',
         'status_code': 200
     }
