@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 endpoint = FastAPI()
 
 
-@endpoint.get('/')
+@endpoint.get('/api')
 async def get_info(slack_name: str, track: str, response: Response):
     res = {
         'slack_name': slack_name,
