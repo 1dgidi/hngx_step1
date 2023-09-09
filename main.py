@@ -12,7 +12,7 @@ async def get_info(slack_name: str, track: str, response: Response):
         'current_day': datetime.now().strftime('%A'),
         'utc_time': str(datetime.now(timezone.utc).\
                     replace(microsecond=0)).replace('+00:00', 'Z').\
-                    replace(' ', ''),
+                    replace(' ', 'T'),
         'track': track,
         'github_file_url': 'https://github.com/1dgidi/hngx_step1/edit/main/main.py',
         'github_repo_url': 'https://github.com/1dgidi/hngx_step1',
